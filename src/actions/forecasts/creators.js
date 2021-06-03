@@ -4,11 +4,13 @@ import forecastRequest from '../../api/forecastRequest';
 import {
     FORECAST_CALCULATION_REQUESTED,
     FORECAST_CALCULATION_CANCELLED,
-    FORECAST_CALCULATION_RETURNED,
+    FORECAST_IMAGE_RETURNED,
     FORECAST_REMOVED,
+    IMAGE_REQUESTED,
+    IMAGE_RETURNED,
 } from './types';
 // selectors
-import { selectFormattedStartAndEndDate } from '../../selectors/dates';
+// import { selectFormattedStartAndEndDate } from '../../selectors/dates';
 
 export const forecastCalculationRequested = () => {
     return {
@@ -20,10 +22,24 @@ export const forecastCalculationCancelled = () => ({
     type: FORECAST_CALCULATION_CANCELLED,
 });
 
-export const forecastCalculationReturned = (url) => ({
-    type: FORECAST_CALCULATION_RETURNED,
+export const forecastCalculationReturned = (imageId) => ({
+    type: FORECAST_IMAGE_RETURNED,
     payload: {
-        url,
+        imageId,
+    },
+});
+
+export const imageRequested = (imageUrl) => ({
+    type: IMAGE_REQUESTED,
+    payload: {
+        imageUrl,
+    },
+});
+
+export const imageReturned = (imageUrl) => ({
+    type: IMAGE_RETURNED,
+    payload: {
+        imageUrl,
     },
 });
 
@@ -31,17 +47,23 @@ export const forecastRemoved = () => ({
     type: FORECAST_REMOVED,
 });
 
-export const proceedRequest = () => {
-    return async (dispatch, getState) => {
+export const forecastCalculationRequest = () => {
+    // TODO add getState
+    return async (dispatch) => {
         try {
             dispatch(forecastCalculationRequested());
-            const payload = selectFormattedStartAndEndDate(getState());
-            const authData = {
-                username: 'username',
-                password: 'password',
+            // const payload = selectFormattedStartAndEndDate(getState());
+            // TODO make a real data
+            const payload = {
+                startDate: 1580504400,
+                endDate: 1580590800,
+                ticker: 'AAPL',
+                interval: '1d',
+                epochs: 10,
+                batchSize: 10,
             };
-            const response = await forecastRequest(payload, authData);
-            dispatch(forecastCalculationReturned(response.url));
+            const response = await forecastRequest(payload);
+            dispatch(forecastCalculationReturned(response.imageId));
         } catch (error) {
             dispatch(forecastCalculationCancelled());
         }

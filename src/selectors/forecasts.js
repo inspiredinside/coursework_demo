@@ -8,4 +8,4 @@ export const isCancelButtonDisabled = (state) =>
 
 export const isLoadingSelector = (state) => state.forecasts.isLoading;
 
-export const selectImageUrl = (state) => state.forecasts.forecastImageUrl;
+export const selectImageUrl = (state) => state.forecasts.imageId;

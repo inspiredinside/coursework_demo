@@ -17,20 +17,12 @@ export const validateBody = (p) => {
     return validator.validate(p, schema);
 };
 
-export default async (payload, authData) => {
-    if (validateBody(payload) && authData) {
+export default async (payload) => {
+    if (validateBody(payload)) {
         try {
-            const response = await axios.post(
-                'http://2v7jd.mocklab.io/requestForecast',
-                payload,
-                {
-                    auth: {
-                        username: authData.user,
-                        password: authData.password,
-                    },
-                }
-            );
-            return response.data;
+            return await axios
+                .post('http://0.0.0.0:5000/calculate', payload)
+                .then((res) => res.data);
         } catch (error) {
             throw error.response ? error.response.status : error;
         }

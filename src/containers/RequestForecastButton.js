@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 // action creators
 import {
     forecastCalculationCancelled,
-    proceedRequest,
+    forecastCalculationRequest,
 } from '../actions/forecasts/creators';
 // selectors
 import {
@@ -23,7 +23,7 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = {
-    proceedRequest,
+    proceedRequest: forecastCalculationRequest,
     forecastCalculationCancelled,
 };
 

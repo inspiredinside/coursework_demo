@@ -1,10 +1,11 @@
 import React from 'react';
 import { Image } from 'antd';
+import imageHelper from '../helpers/imageHelper';
 
 const ForecastImage = ({ imageUrl }) =>
-    imageUrl.length > 0 ? (
+    imageUrl && imageUrl.length > 0 ? (
         <div>
-            <Image width={200} src={imageUrl} />
+            <Image width={400} height={400} src={imageHelper(imageUrl)} />
         </div>
     ) : null;
 

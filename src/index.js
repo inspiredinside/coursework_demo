@@ -10,19 +10,21 @@ import './index.css';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Provider
-          store={createStore(
-              rootReducer,
-              compose(
-                  applyMiddleware(thunk),
-                  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-              )
-          )}>
+    <React.StrictMode>
+        <Provider
+            store={createStore(
+                rootReducer,
+                compose(
+                    applyMiddleware(thunk),
+                    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+                        window.__REDUX_DEVTOOLS_EXTENSION__()
+                )
+            )}
+        >
             <App />
-      </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
