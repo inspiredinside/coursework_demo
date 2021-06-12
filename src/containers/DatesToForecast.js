@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 // action creators
-import { setStartDate } from '../actions/dates/creators';
+import {
+    setStartDate,
+    setEpoch,
+    setPeriod,
+    setTicker,
+} from '../actions/form/creators';
 // selectors
 import { selectSettledMoments } from '../selectors/dates';
 import { isLoadingSelector } from '../selectors/forecasts';
@@ -14,6 +19,9 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = {
     setStartDate,
+    setEpoch,
+    setPeriod,
+    setTicker,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatesToForecast);

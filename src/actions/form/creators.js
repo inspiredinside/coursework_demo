@@ -1,6 +1,9 @@
 // types
 import {
     SET_START_DATE,
+    SET_EPOCH,
+    SET_PERIOD,
+    SET_TICKER,
     SET_END_DATE,
     ALL_DATES_ESTABLISHED,
     ERROR_START_DATE_LATER_END,
@@ -11,6 +14,20 @@ import {
 export const setStartDate = (startDate) => ({
     type: SET_START_DATE,
     startDate,
+});
+
+export const setEpoch = (epoch) => ({
+    type: SET_EPOCH,
+    epoch,
+});
+export const setPeriod = (period) => ({
+    type: SET_PERIOD,
+    period,
+});
+
+export const setTicker = (ticker) => ({
+    type: SET_TICKER,
+    ticker,
 });
 
 export const setEndDate = (endDate) => ({

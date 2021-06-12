@@ -1,12 +1,12 @@
 // redux combineReducers
 import { combineReducers } from 'redux';
 // domain reducers
-import dateReducer from './datesReducer';
-import forecastReducer from './forecastReducer';
+import formReducer from './requestFormReducer';
+import forecastReducer from './forecastResultReducer';
 
 const rootReducer = combineReducers({
-    dates: dateReducer,
-    forecasts: forecastReducer,
+    form: formReducer,
+    forecast: forecastReducer,
 });
 
 export default rootReducer;

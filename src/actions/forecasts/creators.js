@@ -9,8 +9,6 @@ import {
     IMAGE_REQUESTED,
     IMAGE_RETURNED,
 } from './types';
-// selectors
-// import { selectFormattedStartAndEndDate } from '../../selectors/dates';
 
 export const forecastCalculationRequested = () => {
     return {
@@ -52,7 +50,6 @@ export const forecastCalculationRequest = () => {
     return async (dispatch) => {
         try {
             dispatch(forecastCalculationRequested());
-            // const payload = selectFormattedStartAndEndDate(getState());
             // TODO make a real data
             const payload = {
                 startDate: 1580504400,
