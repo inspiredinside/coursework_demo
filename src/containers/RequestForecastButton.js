@@ -10,15 +10,19 @@ import {
     isCancelButtonDisabled,
     isLoadingSelector,
 } from '../selectors/forecasts';
-import { selectStartAndEndDate } from '../selectors/dates';
+import {
+    selectStartAndEndDate,
+    selectChangesOnOptionsFilled,
+} from '../selectors/dates';
 // components
 import RequestForecastButton from '../components/RequestForecastButton';
 
 export const mapStateToProps = (state) => ({
     requestButtonDisabled: isRequestForecastButtonDisabled(state),
     cancelButtonDisabled: isCancelButtonDisabled(state),
-    forecastRendered: state.forecasts.forecastRendered,
+    forecastRendered: state.forecast.forecastRendered,
     dates: selectStartAndEndDate(state),
+    optionFieldsSelected: selectChangesOnOptionsFilled(state),
     isLoading: isLoadingSelector(state),
 });
 

@@ -1,11 +1,11 @@
 export const isRequestForecastButtonDisabled = (state) =>
-    state.forecasts.forecastRequested;
+    state.forecast.forecastRequested;
 
 export const isCancelButtonDisabled = (state) =>
-    !state.forecasts.forecastRequested &&
-    !state.forecasts.forecastReceived &&
-    !state.forecasts.forecastRendered;
+    !state.forecast.forecastRequested &&
+    !state.forecast.forecastReceived &&
+    !state.forecast.forecastRendered;
 
-export const isLoadingSelector = (state) => state.forecasts.isLoading;
+export const isLoadingSelector = (state) => state.forecast.isLoading;
 
-export const selectImageUrl = (state) => state.forecasts.imageId;
+export const selectImageUrl = (state) => state.forecast.imageId;

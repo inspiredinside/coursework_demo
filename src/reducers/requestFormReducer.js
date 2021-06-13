@@ -5,8 +5,9 @@ import {
     ERROR_START_DATE_LATER_END,
     ERROR_WRONG_DATE_TYPE,
     ERROR_END_DATE_AFTER_TODAY,
+    SET_INTERVAL,
     SET_EPOCH,
-    SET_PERIOD,
+    SET_BATCH_SIZE,
     SET_TICKER,
 } from '../actions/form/types';
 // selectors
@@ -14,14 +15,13 @@ import { selectCurrentDay } from '../selectors';
 // helpers
 import setErrorMessage from '../helpers/errorsHelper';
 import { setAllDates, setStartDateHelper } from '../helpers/datesHelper';
-import { BatchSize, Epochs, Tickers } from '../const/form';
 
 export const initialState = {
     endDate: selectCurrentDay(),
-    epoch: Epochs.ONE_DAY,
-    ticker: Tickers.APPLE,
-    period: 10,
-    batchSize: BatchSize['10'],
+    interval: null,
+    ticker: null,
+    epoch: null,
+    batchSize: null,
 };
 
 export default (state = initialState, action) => {
@@ -35,11 +35,13 @@ export default (state = initialState, action) => {
         case ALL_DATES_ESTABLISHED:
             return setAllDates(state, action);
         case SET_EPOCH:
-            return { ...state, epoch: action.payload };
-        case SET_PERIOD:
-            return { ...state, period: action.payload };
+            return { ...state, epoch: action.epoch };
+        case SET_INTERVAL:
+            return { ...state, interval: action.interval };
         case SET_TICKER:
-            return { ...state, ticker: action.payload };
+            return { ...state, ticker: action.ticker };
+        case SET_BATCH_SIZE:
+            return { ...state, batchSize: action.batchSize };
         default:
             return state;
     }

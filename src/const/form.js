@@ -1,4 +1,4 @@
-export const Epochs = Object.freeze({
+export const Interval = Object.freeze({
     ONE_DAY: '1d',
     ONE_WEEK: '1w',
     ONE_MONTH: '1m',
@@ -9,6 +9,11 @@ export const Tickers = Object.freeze({
     GOOGLE: 'GOOG',
     TESLA: 'TSLA',
     AMAZON: 'AMZN',
+});
+export const Epochs = Object.freeze({
+    10: 10,
+    50: 50,
+    100: 100,
 });
 export const BatchSize = Object.freeze({
     10: 10,

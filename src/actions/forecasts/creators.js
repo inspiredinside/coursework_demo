@@ -46,20 +46,11 @@ export const forecastRemoved = () => ({
 });
 
 export const forecastCalculationRequest = () => {
-    // TODO add getState
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const forecastRequestPayload = getState().form;
         try {
             dispatch(forecastCalculationRequested());
-            // TODO make a real data
-            const payload = {
-                startDate: 1580504400,
-                endDate: 1580590800,
-                ticker: 'AAPL',
-                interval: '1d',
-                epochs: 10,
-                batchSize: 10,
-            };
-            const response = await forecastRequest(payload);
+            const response = await forecastRequest(forecastRequestPayload);
             dispatch(forecastCalculationReturned(response.imageId));
         } catch (error) {
             dispatch(forecastCalculationCancelled());

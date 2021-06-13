@@ -1,13 +1,14 @@
 // types
 import {
     SET_START_DATE,
-    SET_EPOCH,
-    SET_PERIOD,
+    SET_INTERVAL,
     SET_TICKER,
     SET_END_DATE,
     ALL_DATES_ESTABLISHED,
     ERROR_START_DATE_LATER_END,
     ERROR_WRONG_DATE_TYPE,
+    SET_EPOCH,
+    SET_BATCH_SIZE,
 } from './types';
 // selectors
 
@@ -16,13 +17,19 @@ export const setStartDate = (startDate) => ({
     startDate,
 });
 
+export const setSelectedInterval = (interval) => ({
+    type: SET_INTERVAL,
+    interval,
+});
+
 export const setEpoch = (epoch) => ({
     type: SET_EPOCH,
     epoch,
 });
-export const setPeriod = (period) => ({
-    type: SET_PERIOD,
-    period,
+
+export const setBatchSize = (batchSize) => ({
+    type: SET_BATCH_SIZE,
+    batchSize,
 });
 
 export const setTicker = (ticker) => ({

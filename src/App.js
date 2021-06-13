@@ -2,7 +2,7 @@ import React from 'react';
 // styles
 import './App.css';
 // container components
-import DatesToForecast from './containers/DatesToForecast';
+import DatesToForecast from './containers/ForecastRequestForm';
 import RequestForecastButton from './containers/RequestForecastButton';
 import ForecastImage from './containers/ForecastImage';
 

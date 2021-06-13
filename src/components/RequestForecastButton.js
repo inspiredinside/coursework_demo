@@ -9,6 +9,7 @@ const RequestForecastButton = (props) => {
         forecastCalculationCancelled,
         cancelButtonDisabled,
         forecastRendered,
+        optionFieldsSelected,
         dates: { startDate },
     } = props;
     const renderAlert = () =>
@@ -24,7 +25,8 @@ const RequestForecastButton = (props) => {
             </div>
         ) : null;
     const dispatchForecastRequest = () => proceedRequest();
-    const forecastButtonDisabled = requestButtonDisabled || !startDate;
+    const forecastButtonDisabled =
+        requestButtonDisabled || !startDate || !optionFieldsSelected;
     return (
         <>
             <Button
